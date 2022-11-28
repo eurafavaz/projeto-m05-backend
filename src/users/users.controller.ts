@@ -18,7 +18,7 @@ export class UsersController {
   }
 
   // @Get()
-  // async getAllUser(); Promise<IUSerEmtity[]> {
+  // async getAllUser(): Promise<IUSerEmtity[]> {
 	//   return await this.service.getAllUsers();
   // }
 
