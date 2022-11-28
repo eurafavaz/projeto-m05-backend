@@ -17,6 +17,11 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
+  // @Get()
+  // async getAllUser(); Promise<IUSerEmtity[]> {
+	//   return await this.service.getAllUsers();
+  // }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(+id);

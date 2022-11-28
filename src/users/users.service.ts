@@ -5,7 +5,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
 // export class UserService {
-//   private users: User[] = [];
+//   private users: IUserEntity[] = [];
 
 //   async createUser(user: CreateUserDto): Promise<User> {
 //     const userEntity = { ...user, id: randomUUID() };
@@ -23,6 +23,10 @@ import { UpdateUserDto } from './dto/update-user.dto';
 //     const updatedUser = this.users.find((user) => user.id == userData.id);
 //     return updatedUser;
 //   }
+
+//  async getAllUsers(): Promise<IUserEntity[]> {
+// 	  return this.users;
+//  }
 // }
 
 // --- Studies Version
