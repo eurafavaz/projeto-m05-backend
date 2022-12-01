@@ -1,55 +1,51 @@
-// import { User } from './entities/user.entity';
-// import { randomUUID } from 'crypto';
+import { IUser } from './entities/user.entity';
+import { randomUUID } from 'crypto';
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
-// export class UserService {
-//   private users: IUserEntity[] = [];
-
-//   async createUser(user: CreateUserDto): Promise<User> {
-//     const userEntity = { ...user, id: randomUUID() };
-//     this.users.push(userEntity);
-//     return userEntity;
-//   }
-
-//   async updateUser(userData: UpdateUserDto): Promise<User> {
-//     this.users.find.map((user, index) => {
-//       if (user.id == userData.id) {
-//         const UpdatedUser = Object.assign(user, userData);
-//         this.users.splice(index, 1, UpdatedUser);
-//       }
-//     });
-//     const updatedUser = this.users.find((user) => user.id == userData.id);
-//     return updatedUser;
-//   }
-
-//  async getAllUsers(): Promise<IUserEntity[]> {
-// 	  return this.users;
-//  }
-// }
-
-// --- Studies Version
-
 @Injectable()
 export class UsersService {
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+  private users: IUser[] = [];
+
+  async create(user: CreateUserDto) {
+    const userEntity = { ...user, id: randomUUID() };
+    this.users.push(userEntity);
+    return userEntity;
   }
 
-  findAll() {
-    return `This action returns all users`;
+  async findAll() {
+    return this.users;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  async findOne(userId: string) {
+    const existUser = this.users.find((user) => user.id == userId);
+    if (!existUser) {
+      throw new Error(`User not found`);
+    }
+    return existUser;
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(userData: UpdateUserDto) {
+    this.users.map((user, index) => {
+      if (user.id == userData.id) {
+        const UpdatedUser = Object.assign(user, userData);
+        this.users.splice(index, 1, UpdatedUser);
+      }
+    });
+    const updatedUser = this.users.find((user) => user.id == userData.id);
+    return updatedUser;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  async remove(userId: string) {
+    const existUser = this.users.find((user) => user.id == userId);
+    if (existUser) {
+      this.users.map((user, index) => {
+        this.users.splice(index, 1);
+      });
+      return true;
+    } else {
+      return false;
+    }
   }
 }
