@@ -3,45 +3,47 @@ import { randomUUID } from 'crypto';
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { UserRepository } from './services/user.repository';
+import { map } from 'rxjs';
 
 @Injectable()
 export class UsersService {
-  private users: IUser[] = [];
+  // private users: IUser[] = [];
+
+  constructor(private userRepository: UserRepository) {}
 
   async create(user: CreateUserDto) {
     const userEntity = { ...user, id: randomUUID() };
-    this.users.push(userEntity);
-    return userEntity;
+    return await this.userRepository.createUser(userEntity);
   }
 
   async findAll() {
-    return this.users;
+    return this.userRepository.findAllUser();
   }
 
   async findOne(userId: string) {
-    const existUser = this.users.find((user) => user.id == userId);
+    const existUser = this.userRepository.findUserById(userId);
     if (!existUser) {
       throw new Error(`User not found`);
     }
-    return existUser;
+    return this.userRepository.findUserById;
   }
 
   async update(userData: UpdateUserDto) {
-    this.users.map((user, index) => {
+    this.userRepository.updateUser.map((user) => {
       if (user.id == userData.id) {
-        const UpdatedUser = Object.assign(user, userData);
-        this.users.splice(index, 1, UpdatedUser);
+        this.userRepository.updateUser(userData);
       }
     });
-    const updatedUser = this.users.find((user) => user.id == userData.id);
+    const updatedUser = this.userRepository.updateUser(userData);
     return updatedUser;
   }
 
   async remove(userId: string) {
-    const existUser = this.users.find((user) => user.id == userId);
+    const existUser = this.userRepository.deleteUser(userId);
     if (existUser) {
-      this.users.map((user, index) => {
-        this.users.splice(index, 1);
+      this.userRepository.deleteUser((existUser) => {
+        this.userRepository.deleteUser(userId);
       });
       return true;
     } else {
