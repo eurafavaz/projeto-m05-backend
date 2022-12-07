@@ -1,10 +1,9 @@
-import { IUser } from './entities/user.entity';
+// import { IUser } from './entities/user.entity';
 import { randomUUID } from 'crypto';
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserRepository } from './services/user.repository';
-import { map } from 'rxjs';
 
 @Injectable()
 export class UsersService {

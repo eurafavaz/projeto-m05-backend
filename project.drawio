@@ -1,0 +1,42 @@
+<mxfile host="65bd71144e">
+    <diagram id="ElliNN2NQLAcMTE7QmJN" name="Página-1">
+        <mxGraphModel dx="1502" dy="982" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="10" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="3" target="6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="LOJAS&lt;br&gt;&lt;br&gt;id loja (string / random)&lt;br&gt;bairro (string)&lt;br&gt;cnpj (string)&lt;br&gt;cliente --- (@clientes)&lt;br&gt;inauguração --- (@insumos)&lt;br&gt;insumos --- (@insumos)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=default;fontColor=#ffffff;strokeColor=#007FFF;strokeWidth=2;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="195" width="206" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="GESTÃO DE INSUMOS DE FRANQUIAS DE BOLOS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=default;fontColor=#ffffff;strokeColor=#B266FF;arcSize=21;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="40" width="320" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;" parent="1" source="11" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="300" y="275" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="CLIENTES&lt;br&gt;&lt;br&gt;id (string / random)&lt;br&gt;nome (string)&lt;br&gt;cpf (string)&lt;br&gt;telefone (string)&lt;br&gt;email (string)&lt;br&gt;data nasc (string)&lt;br&gt;loja --- (@lojas)&lt;br&gt;usuário (string)&lt;br&gt;senha (string)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=default;fontColor=#ffffff;strokeColor=#007FFF;strokeWidth=2;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="175" width="160" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="INSUMOS&lt;br&gt;&lt;br&gt;farinha (boolean)&lt;br&gt;açúcar (boolean)&lt;br&gt;recheio[(string)]&lt;br&gt;cobertura[(string)]&lt;br&gt;utensílios[(string)]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=default;fontColor=#ffffff;strokeColor=#007FFF;strokeWidth=2;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="630" y="170" width="140" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="N:N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="250" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="1:N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="265" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;" edge="1" parent="1" source="5" target="11">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="320" y="275" as="targetPoint"/>
+                        <mxPoint x="240" y="275" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
